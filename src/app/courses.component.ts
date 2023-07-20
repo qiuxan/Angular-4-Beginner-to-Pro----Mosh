@@ -9,12 +9,16 @@ import { CoursesService } from './courses.service';
     <!-- <div (click)="onClickDiv()">
       <button (click)="onSave($event)">Save</button>
     </div> -->
-    <input type="text" (keyup.enter)="onKeyUp()" />
+    <!-- <input type="text" (keyup.enter)="onKeyUp($event)" /> -->
+    <input #email type="text" (keyup.enter)="onKeyUp(email.value)" />
   `,
 })
 export class CoursesComponent {
-  onKeyUp() {
-    console.log('Enter');
+  // onKeyUp($event: Event) {
+  //   console.log('Enter', ($event.target as HTMLInputElement).value);
+  // }
+  onKeyUp(email: string) {
+    console.log('Enter', email);
   }
   isActive = true;
   title = 'List of courses';
