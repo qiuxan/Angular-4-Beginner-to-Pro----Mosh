@@ -19,6 +19,7 @@ export class CoursesComponent {
     console.log('div clicked');
   }
   onSave($event: MouseEvent) {
+    $event.stopPropagation();
     console.log('save', $event);
   }
   constructor(service: CoursesService) {
