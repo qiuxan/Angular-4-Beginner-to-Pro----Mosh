@@ -3,7 +3,8 @@ import { CoursesService } from './courses.service';
 @Component({
   selector: 'courses',
   template: `
-    <button class="btn btn-primary" [class.active]="isActive">Save</button>
+    <!-- <button class="btn btn-primary" [class.active]="isActive">Save</button> -->
+    <button [style.background]="isActive ? 'blue' : 'white'">Save</button>
   `,
 })
 export class CoursesComponent {
