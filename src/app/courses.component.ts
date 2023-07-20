@@ -6,12 +6,16 @@ import { CoursesService } from './courses.service';
     <!-- <button class="btn btn-primary" [class.active]="isActive">Save</button> -->
     <!-- <button [style.background]="isActive ? 'blue' : 'white'">Save</button> -->
 
-    <div (click)="onClickDiv()">
+    <!-- <div (click)="onClickDiv()">
       <button (click)="onSave($event)">Save</button>
-    </div>
+    </div> -->
+    <input type="text" (keyup.enter)="onKeyUp()" />
   `,
 })
 export class CoursesComponent {
+  onKeyUp() {
+    console.log('Enter');
+  }
   isActive = true;
   title = 'List of courses';
   courses;
