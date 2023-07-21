@@ -8,6 +8,7 @@ import { CoursesService } from './courses.service';
 import { AuthorsComponent } from './authors/authors.component';
 import { AuthorsService } from './authors.service';
 import { SummaryPipe } from 'src/summary.pipe';
+import { StarComponent } from './star/star.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SummaryPipe } from 'src/summary.pipe';
     CourseComponent,
     AuthorsComponent,
     SummaryPipe,
+    StarComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [CoursesService, AuthorsService],
