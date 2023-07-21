@@ -9,6 +9,8 @@ import { AuthorsComponent } from './authors/authors.component';
 import { AuthorsService } from './authors.service';
 import { SummaryPipe } from 'src/summary.pipe';
 import { StarComponent } from './star/star.component';
+import { TitleCaseComponent } from './title-case/title-case.component';
+import { SpecialTitleCasePipe } from 'src/specialtitlecase.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { StarComponent } from './star/star.component';
     AuthorsComponent,
     SummaryPipe,
     StarComponent,
+    TitleCaseComponent,
+    SpecialTitleCasePipe,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [CoursesService, AuthorsService],
