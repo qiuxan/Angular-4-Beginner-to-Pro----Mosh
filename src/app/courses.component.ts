@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { CoursesService } from './courses.service';
 @Component({
   selector: 'courses',
@@ -10,11 +10,13 @@ import { CoursesService } from './courses.service';
       <button (click)="onSave($event)">Save</button>
     </div> -->
     <!-- <input type="text" (keyup.enter)="onKeyUp($event)" /> -->
-    <input
+    <!-- <input
       [value]="email"
       type="text"
       (keyup.enter)="email = checkEvent($event); onKeyUp()"
-    />
+    /> -->
+
+    <input [(ngModel)]="email" type="text" (keyup.enter)="onKeyUp()" />
   `,
 })
 export class CoursesComponent {
