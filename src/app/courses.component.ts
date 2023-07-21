@@ -22,7 +22,7 @@ import { CoursesService } from './courses.service';
     /> -->
 
     <!-- <input [(ngModel)]="email" type="text" (keyup.enter)="onKeyUp()" /> -->
-    {{ text | summary }}
+    {{ text | summary : 10 }}
   `,
 })
 export class CoursesComponent {
