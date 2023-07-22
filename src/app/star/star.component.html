@@ -1,5 +1,5 @@
 <div (click)="onClick()">
-  <div [style.display]="isFavorite ? 'block' : 'none'">
+  <div [style.display]="isSelected ? 'block' : 'none'">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
@@ -14,7 +14,7 @@
     </svg>
   </div>
 
-  <div [style.display]="isFavorite ? 'none' : 'block'">
+  <div [style.display]="isSelected ? 'none' : 'block'">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"

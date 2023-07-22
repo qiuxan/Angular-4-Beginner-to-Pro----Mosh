@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FaveriteEventData } from './star/star.component';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,11 @@ export class AppComponent {
   post = {
     isFavorite: true,
   };
-  onFavoriteChanged() {
-    console.log('onFavoriteChanged function called');
+  onFavoriteChanged(isFaverite: FaveriteEventData) {
+    console.log(
+      'onFavoriteChanged function called',
+      isFaverite,
+      isFaverite.selected
+    );
   }
 }
