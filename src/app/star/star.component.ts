@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./star.component.css'],
 })
 export class StarComponent {
-  @Input() isFavorite: boolean = true;
+  @Input('is-Favorite') isFavorite: boolean = true;
   onClick() {
     this.isFavorite = !this.isFavorite;
   }
