@@ -9,9 +9,9 @@ export interface FaveriteEventData {
 })
 export class StarComponent {
   @Input('is-Favorite') isSelected: boolean = true;
-  @Output() change = new EventEmitter();
+  @Output('change') click = new EventEmitter();
   onClick() {
     this.isSelected = !this.isSelected;
-    this.change.emit({ selected: this.isSelected });
+    this.click.emit({ selected: this.isSelected });
   }
 }
