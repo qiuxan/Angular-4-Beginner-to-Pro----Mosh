@@ -1,1 +1,4 @@
-<app-star [is-Favorite]="post.isFavorite"></app-star>
+<app-star
+  [is-Favorite]="post.isFavorite"
+  (change)="onFavoriteChanged()"
+></app-star>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-star',
@@ -7,7 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class StarComponent {
   @Input('is-Favorite') isFavorite: boolean = true;
+  @Output() change = new EventEmitter();
   onClick() {
     this.isFavorite = !this.isFavorite;
+    this.change.emit();
   }
 }
