@@ -37,11 +37,18 @@
   <div *ngSwitchCase="'list'">List view content</div>
   <div *ngSwitchDefault>Otherwise</div>
 </div> -->
-<button (click)="onAdd()">Add</button>
+<!-- <button (click)="onAdd()">Add</button>
 <ul>
   <li *ngFor="let course of courses; index as i; even as isEven">
     {{ i + 1 + " ," + course.name }} <span *ngIf="isEven">Even </span>
     <button (click)="onRemove(course)">Remove</button>
     <button (click)="onUpdate(course)">Update</button>
+  </li>
+</ul> -->
+
+<button (click)="loadCourses()">Load Course</button>
+<ul>
+  <li *ngFor="let course of courses; trackBy: trackCourse">
+    {{ course.name }}
   </li>
 </ul>
