@@ -14,7 +14,7 @@
 
 <!-- <div [hidden]="courses.length === 0">List of courses</div>
 <div [hidden]="courses.length > 0">No course yet</div> -->
-<ul class="nav nav-pills">
+<!-- <ul class="nav nav-pills">
   <li class="nav-item">
     <a
       class="nav-link"
@@ -36,4 +36,9 @@
   <div *ngSwitchCase="'map'">Map view content</div>
   <div *ngSwitchCase="'list'">List view content</div>
   <div *ngSwitchDefault>Otherwise</div>
-</div>
+</div> -->
+<ul>
+  <li *ngFor="let course of courses; index as i; even as isEven">
+    {{ i + 1 + " ," + course.name }} <span *ngIf="isEven">Even </span>
+  </li>
+</ul>
