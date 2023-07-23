@@ -34,5 +34,6 @@ export class AppComponent {
     isLike: false,
     likeCount: 0,
   };
-  courses = [];
+  courses = [1, 2];
+  viewMode = 'list';
 }
