@@ -11,6 +11,8 @@ import { SummaryPipe } from 'src/summary.pipe';
 import { StarComponent } from './star/star.component';
 import { TitleCaseComponent } from './title-case/title-case.component';
 import { SpecialTitleCasePipe } from 'src/specialtitlecase.pipe';
+import { TestingcomponentComponent } from './testingcomponent/testingcomponent.component';
+import { TestingButtonComponentComponent } from './testing-button-component/testing-button-component.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { SpecialTitleCasePipe } from 'src/specialtitlecase.pipe';
     StarComponent,
     TitleCaseComponent,
     SpecialTitleCasePipe,
+    TestingcomponentComponent,
+    TestingButtonComponentComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [CoursesService, AuthorsService],
