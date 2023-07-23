@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FaveriteEventData } from './star/star.component';
-
+import { LikeOutputData } from './like/like.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,4 +18,21 @@ export class AppComponent {
       isFaverite.selected
     );
   }
+
+  onLikedChanged(isLiked: LikeOutputData) {
+    console.log(
+      'likedChanged function called',
+      { isLiked },
+      isLiked.likedChangeTo
+    );
+    if (isLiked.likedChangeTo)
+      this.tweetLike
+        .likeCount++; // in real word application data should be pushed to the backend here
+    else this.tweetLike.likeCount--;
+  }
+  tweetLike = {
+    // real world application data received from the api backend
+    isLike: false,
+    likeCount: 0,
+  };
 }
