@@ -40,4 +40,16 @@ export class AppComponent {
     { id: 3, name: 'course3' },
   ];
   viewMode = 'list';
+
+  onAdd() {
+    this.courses.push({ id: 4, name: 'course4' });
+  }
+  onRemove(course: any) {
+    let index = this.courses.indexOf(course);
+    this.courses.splice(index, 1);
+  }
+  onUpdate(course: any) {
+    let index = this.courses.indexOf(course);
+    this.courses[index].name = 'updated';
+  }
 }
