@@ -13,6 +13,7 @@ import { TitleCaseComponent } from './title-case/title-case.component';
 import { SpecialTitleCasePipe } from 'src/specialtitlecase.pipe';
 import { TestingcomponentComponent } from './testingcomponent/testingcomponent.component';
 import { TestingButtonComponentComponent } from './testing-button-component/testing-button-component.component';
+import { PanelComponent } from './panel/panel.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TestingButtonComponentComponent } from './testing-button-component/test
     SpecialTitleCasePipe,
     TestingcomponentComponent,
     TestingButtonComponentComponent,
+    PanelComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [CoursesService, AuthorsService],
