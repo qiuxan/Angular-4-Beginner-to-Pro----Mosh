@@ -5,3 +5,6 @@
     <p>Some content here</p>
   </div>
 </bootstrap-panel>
+<app-like [isLiked]="tweetLike.isLike" (change)="onLikedChanged($event)">
+  <ng-container class="like-number">{{ tweetLike.likeCount }}</ng-container>
+</app-like>
