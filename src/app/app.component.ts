@@ -34,22 +34,16 @@ export class AppComponent {
     isLike: false,
     likeCount: 0,
   };
-  courses = [
-    { id: 1, name: 'course1' },
-    { id: 2, name: 'course2' },
-    { id: 3, name: 'course3' },
-  ];
-  viewMode = 'list';
+  courses: any;
 
-  onAdd() {
-    this.courses.push({ id: 4, name: 'course4' });
+  loadCourses() {
+    this.courses = [
+      { id: 1, name: 'course1' },
+      { id: 2, name: 'course2' },
+      { id: 3, name: 'course3' },
+    ];
   }
-  onRemove(course: any) {
-    let index = this.courses.indexOf(course);
-    this.courses.splice(index, 1);
-  }
-  onUpdate(course: any) {
-    let index = this.courses.indexOf(course);
-    this.courses[index].name = 'updated';
+  trackCourse(index: number, course: { id: number; name: string } | undefined) {
+    return course ? course.id : undefined;
   }
 }
