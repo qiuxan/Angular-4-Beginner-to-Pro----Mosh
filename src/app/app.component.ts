@@ -34,6 +34,10 @@ export class AppComponent {
     isLike: false,
     likeCount: 0,
   };
-  courses = [1, 2];
+  courses = [
+    { id: 1, name: 'course1' },
+    { id: 2, name: 'course2' },
+    { id: 3, name: 'course3' },
+  ];
   viewMode = 'list';
 }
