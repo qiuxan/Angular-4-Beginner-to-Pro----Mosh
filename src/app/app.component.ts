@@ -25,9 +25,8 @@ export class AppComponent {
       { isLiked },
       isLiked.likedChangeTo
     );
-    if (isLiked.likedChangeTo)
-      this.tweetLike
-        .likeCount++; // in real word application data should be pushed to the backend here
+    if (isLiked.likedChangeTo) this.tweetLike.likeCount++;
+    // in real word application data should be pushed to the backend here
     else this.tweetLike.likeCount--;
   }
   tweetLike = {
@@ -35,4 +34,5 @@ export class AppComponent {
     isLike: false,
     likeCount: 0,
   };
+  courses = [];
 }
