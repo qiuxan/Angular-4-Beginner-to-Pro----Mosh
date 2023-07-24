@@ -46,4 +46,6 @@ export class AppComponent {
   trackCourse(index: number, course: { id: number; name: string } | undefined) {
     return course ? course.id : undefined;
   }
+
+  viewMode = '';
 }
