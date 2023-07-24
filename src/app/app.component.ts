@@ -50,4 +50,12 @@ export class AppComponent {
   viewMode = '';
 
   canSave = true;
+
+  task: any = {
+    title: 'review the application',
+    // assignee: {
+    //   name: 'john smith',
+    // },
+    assignee: null,
+  };
 }
