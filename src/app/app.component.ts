@@ -34,7 +34,7 @@ export class AppComponent {
     isLike: false,
     likeCount: 0,
   };
-  courses: any;
+  courses: any = [];
 
   loadCourses() {
     this.courses = [
