@@ -14,4 +14,13 @@ export class ContactFormComponent {
     console.log(f); // { first: '', last: '' }
     console.log(f.valid); // false
   }
+  logGroup(contactGroup: any) {
+    console.log(contactGroup);
+  }
+
+  contactMethods = [
+    { id: 1, name: 'Email' },
+    { id: 2, name: 'Telephone' },
+    { id: 3, name: 'Mail' },
+  ];
 }
