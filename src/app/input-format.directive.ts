@@ -14,7 +14,7 @@ export class InputFormatDirective {
     this.format = '';
   }
 
-  @Input('format') format: string; // Explicitly define the type as 'string'
+  @Input('appInputFormat') format: string; // Explicitly define the type as 'string'
   @HostListener('focus') onFocus() {
     console.log('on focus');
   }
