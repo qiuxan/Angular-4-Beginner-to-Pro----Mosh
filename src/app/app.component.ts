@@ -48,4 +48,6 @@ export class AppComponent {
   }
 
   viewMode = '';
+
+  canSave = true;
 }
