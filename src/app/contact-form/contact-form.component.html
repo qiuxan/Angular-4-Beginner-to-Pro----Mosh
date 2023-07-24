@@ -1,6 +1,7 @@
-<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
   <div ngModelGroup="contact" #contactGroup="ngModelGroup">
-    <div *ngIf="!contactGroup.valid">....</div>
+    <div *ngIf="!contactGroup.valid">message not show up when valid</div>
+    <button (clik)="logGroup(contactGroup)">show contatGroup</button>
     <div class="form-group">
       <label for="firstName">First Name</label>
       <input
@@ -46,5 +47,34 @@
       class="form-control"
     ></textarea>
   </div>
-  <button class="btn btn-primary">Submit</button>
+  <div class="checkbox">
+    <label
+      ><input type="checkbox" ngModel name="isSubscribed" /> Subscribe to
+      mailing list</label
+    >
+    <div class="form-group">
+      <label for="contactMethod">Contact Method</label
+      ><select
+        ngModel
+        name="contactMethod"
+        id="contactMethod"
+        class="form-control"
+      >
+        <option *ngFor="let method of contactMethods" [value]="method.id">
+          {{ method.name }}
+        </option>
+      </select>
+    </div>
+    <div class="radio" *ngFor="let way of contactMethods">
+      <label
+        ><input ngModel type="radio" name="contactWay" [value]="way.id" />{{
+          way.name
+        }}</label
+      >
+    </div>
+
+    <p>{{ f.value | json }}</p>
+  </div>
+
+  <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
 </form>
