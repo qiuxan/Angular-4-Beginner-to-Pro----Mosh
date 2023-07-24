@@ -1,5 +1,6 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-  <div ngModelGroup="contact">
+  <div ngModelGroup="contact" #contactGroup="ngModelGroup">
+    <div *ngIf="!contactGroup.valid">....</div>
     <div class="form-group">
       <label for="firstName">First Name</label>
       <input
