@@ -15,6 +15,7 @@ import { TestingcomponentComponent } from './testingcomponent/testingcomponent.c
 import { TestingButtonComponentComponent } from './testing-button-component/testing-button-component.component';
 import { PanelComponent } from './panel/panel.component';
 import { LikeComponent } from './like/like.component';
+import { InputFormatDirective } from './input-format.directive';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { LikeComponent } from './like/like.component';
     TestingButtonComponentComponent,
     PanelComponent,
     LikeComponent,
+    InputFormatDirective,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [CoursesService, AuthorsService],
