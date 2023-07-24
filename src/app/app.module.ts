@@ -16,6 +16,7 @@ import { TestingButtonComponentComponent } from './testing-button-component/test
 import { PanelComponent } from './panel/panel.component';
 import { LikeComponent } from './like/like.component';
 import { InputFormatDirective } from './input-format.directive';
+import { ZippyComponent } from './zippy/zippy.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { InputFormatDirective } from './input-format.directive';
     PanelComponent,
     LikeComponent,
     InputFormatDirective,
+    ZippyComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [CoursesService, AuthorsService],
