@@ -22,6 +22,7 @@ import { CourseFormComponent } from './course-form/course-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 import { NewCourseForm2Component } from './new-course-form2/new-course-form2.component';
+import { NewPasswordFormComponent } from './new-password-form/new-password-form.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { NewCourseForm2Component } from './new-course-form2/new-course-form2.com
     SignupFormComponent,
     NewCourseFormComponent,
     NewCourseForm2Component,
+    NewPasswordFormComponent,
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule],
   providers: [CoursesService, AuthorsService],
