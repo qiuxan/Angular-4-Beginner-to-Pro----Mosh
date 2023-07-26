@@ -1,5 +1,10 @@
 # HelloWorld
 
+Please Note this code is based on Angular 4: Beginner to Pro by Mosh https://codewithmosh.com/p/angular-master-class
+
+
+It is using Angular 16 instead of 4. The basic ideas are the same,but with more type strict limitation in Typescript. eg. I notice in Angular 4 of the tutorial you don't need to worry about type issue in Template, but you will now in 16.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
 
 ## Development server
