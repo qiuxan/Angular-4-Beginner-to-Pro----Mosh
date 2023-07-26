@@ -2,6 +2,8 @@
   <div class="form-group">
     <label for="username">Username</label>
     <input formControlName="username" type="text" class="form-control" />
+    <!-- {{ username?.pending | json }} -->
+    <div *ngIf="username?.pending">Checking for uniqueness...</div>
     <div
       *ngIf="username?.touched && username?.invalid"
       class="alert alert-danger"
