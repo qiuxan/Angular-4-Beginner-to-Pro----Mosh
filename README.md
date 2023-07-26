@@ -1,9 +1,17 @@
 # HelloWorld
 
+
 Please Note this code is based on Angular 4: Beginner to Pro by Mosh https://codewithmosh.com/p/angular-master-class
 
 
-It is using Angular 16 instead of 4. The basic ideas are the same,but with more type strict limitation in Typescript. eg. I notice in Angular 4 of the tutorial you don't need to worry about type issue in Template, but you will now in 16.
+It is using Angular 16 instead of 4. The basic ideas are the same, but with more type strict limitations in Typescript. eg. I notice in Angular 4 of the tutorial you don't need to worry about type issue in Template, but you will now be in 16.
+
+HttpModule from angular/http cannot be found from the Angular 16, replace it with 
+
+import { HttpClientModule } from '@angular/common/http';
+
+from:
+https://stackoverflow.com/questions/45207615/cannot-find-the-angular-common-http-module
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
 
