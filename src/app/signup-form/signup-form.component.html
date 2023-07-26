@@ -8,6 +8,10 @@
     >
       <div *ngIf="username?.errors?.['required']">Username is required</div>
 
+      <div *ngIf="username?.errors?.['cannotContainSpace']">
+        Username can not contain space
+      </div>
+
       <div *ngIf="username?.errors?.['minlength']">
         The Minimum length of Username is
         {{ username?.errors?.['minlength'].requiredLength}} and the Current
