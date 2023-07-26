@@ -6,7 +6,13 @@
       *ngIf="username?.touched && username?.invalid"
       class="alert alert-danger"
     >
-      Username is requiered
+      <div *ngIf="username?.errors?.['required']">Username is required</div>
+
+      <div *ngIf="username?.errors?.['minlength']">
+        The Minimum length of Username is
+        {{ username?.errors?.['minlength'].requiredLength}} and the Current
+        Length is {{username?.errors?.['minlength'].actualLength}}
+      </div>
     </div>
   </div>
   <div class="form-group">
