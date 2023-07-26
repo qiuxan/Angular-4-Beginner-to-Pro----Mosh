@@ -12,6 +12,10 @@
         Username can not contain space
       </div>
 
+      <div *ngIf="username?.errors?.['shouldBeUnique']">
+        Username is already taken.
+      </div>
+
       <div *ngIf="username?.errors?.['minlength']">
         The Minimum length of Username is
         {{ username?.errors?.['minlength'].requiredLength}} and the Current
