@@ -6,7 +6,7 @@ import { Post } from '../posts/posts.component';
   providedIn: 'root',
 })
 export class PostService {
-  private url = 'https://jsonplaceholder.typicode.com/posts';
+  private url = 'https://jsonplaceholder.typicode.com/posdts';
 
   constructor(private http: HttpClient) {}
   createPost(post: any) {
