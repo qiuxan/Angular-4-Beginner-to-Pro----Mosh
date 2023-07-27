@@ -21,6 +21,14 @@ export class PostsComponent {
         console.log(response);
       });
   }
+
+  deletePost(post: Post) {
+    this.http.delete(this.url + '/' + post.id).subscribe((response) => {
+      //  this.posts = this.posts.filter((p) => post.id != p.id);
+      let index = this.posts.indexOf(post);
+      this.posts.splice(index, 1);
+    });
+  }
   createPost(input: HTMLInputElement) {
     let post: any = { title: input.value };
     input.value = '';
