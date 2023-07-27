@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 interface Post {
   id: number;
   title: string | null;
@@ -11,8 +11,9 @@ interface Post {
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css'],
 })
-export class PostsComponent {
+export class PostsComponent implements OnInit {
   posts: Post[] = [];
+
   private url = 'https://jsonplaceholder.typicode.com/posts';
   updatePost(post: Post) {
     this.http
@@ -41,11 +42,11 @@ export class PostsComponent {
 
     console.log(input.value);
   }
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) {
+  ngOnInit(): void {
     this.http.get<Post[]>(this.url).subscribe((response) => {
       this.posts = response;
-      // console.log(this.posts);
     });
   }
 }
