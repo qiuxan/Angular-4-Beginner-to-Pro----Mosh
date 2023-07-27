@@ -14,7 +14,13 @@ interface Post {
 export class PostsComponent {
   posts: Post[] = [];
   private url = 'https://jsonplaceholder.typicode.com/posts';
-
+  updatePost(post: Post) {
+    this.http
+      .patch(this.url + '/' + post.id, JSON.stringify({ isRead: true }))
+      .subscribe((response) => {
+        console.log(response);
+      });
+  }
   createPost(input: HTMLInputElement) {
     let post: any = { title: input.value };
     input.value = '';
