@@ -18,13 +18,13 @@ export class PostsComponent implements OnInit {
   posts: Post[] = [];
 
   updatePost(post: Post) {
-    this.service.uptatePost(post).subscribe((response) => {
+    this.service.uptate(post).subscribe((response) => {
       console.log(response);
     });
   }
 
   deletePost(post: Post) {
-    this.service.deletePost(post.id).subscribe(
+    this.service.delete(post.id).subscribe(
       (response) => {
         //  this.posts = this.posts.filter((p) => post.id != p.id);
         let index = this.posts.indexOf(post);
@@ -40,7 +40,7 @@ export class PostsComponent implements OnInit {
   createPost(input: HTMLInputElement) {
     let post: any = { title: input.value };
     input.value = '';
-    this.service.createPost(post).subscribe(
+    this.service.create(post).subscribe(
       (response) => {
         post['id'] = response?.id;
         this.posts.splice(0, 0, post);
@@ -64,7 +64,7 @@ export class PostsComponent implements OnInit {
   constructor(private service: PostService) {}
 
   ngOnInit(): void {
-    this.service.getPosts().subscribe((response) => {
+    this.service.getAll().subscribe((response) => {
       this.posts = response;
     });
   }
