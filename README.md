@@ -10,6 +10,10 @@ HttpModule from angular/http cannot be found from the Angular 16, replace it wit
 
 import { HttpClientModule } from '@angular/common/http';
 
+updated 29 Jul 2023
+
+In ng16 map operator is not necessary to rebuild an array from the response, as response from httpClient is already an array
+
 update 28 Jul 2023
 
 Another two differences of Angular 16 are that 
