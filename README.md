@@ -10,6 +10,12 @@ HttpModule from angular/http cannot be found from the Angular 16, replace it wit
 
 import { HttpClientModule } from '@angular/common/http';
 
+update 28 Jul 2023
+
+Another two differences of Angular 16 are that 
+and instead of rxjs/add/operator/catch, ng 16 is using import { catchError } from 'rxjs/operators'; and require using a pipe to call it.
+and
+instead of Observable.throw in ng4,ng 16 is using **throwError**  
 from:
 https://stackoverflow.com/questions/45207615/cannot-find-the-angular-common-http-module
 
