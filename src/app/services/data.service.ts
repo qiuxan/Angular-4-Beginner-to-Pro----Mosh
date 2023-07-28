@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Post } from '../posts/posts.component';
 import { catchError } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { AppError } from '../common/app-error';
 import { NotFoundError as CustomNotFoundError } from '../common/not-found-error';
@@ -18,7 +19,12 @@ export class DataService {
       .pipe(catchError(this.handleError));
   }
   getAll() {
-    return this.http.get<Post[]>(this.url).pipe(catchError(this.handleError));
+    return (
+      this.http
+        .get<Post[]>(this.url)
+        // .pipe(map((response) => response))// un necessery in 
+        .pipe(catchError(this.handleError))
+    );
   }
   uptate(resource: Post) {
     return this.http
