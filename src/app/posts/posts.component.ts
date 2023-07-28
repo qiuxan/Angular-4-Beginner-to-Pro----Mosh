@@ -24,29 +24,29 @@ export class PostsComponent implements OnInit {
   }
 
   deletePost(post: Post) {
-    this.service.delete(post.id).subscribe(
-      (response) => {
-        //  this.posts = this.posts.filter((p) => post.id != p.id);
-        let index = this.posts.indexOf(post);
-        this.posts.splice(index, 1);
-      },
-      (error: AppError) => {
-        if (error instanceof NotFoundError)
-          alert('this post has already been deleted');
-        else throw error;
-      }
-    );
+    let index = this.posts.indexOf(post);
+    this.posts.splice(index, 1);
+
+    this.service.delete(post.id).subscribe(null, (error: AppError) => {
+      this.posts.splice(index, 0, post);
+
+      if (error instanceof NotFoundError)
+        alert('this post has already been deleted');
+      else throw error;
+    });
   }
   createPost(input: HTMLInputElement) {
     let post: any = { title: input.value };
     input.value = '';
+    this.posts.splice(0, 0, post);
     this.service.create(post).subscribe(
       (response) => {
         post['id'] = response?.id;
-        this.posts.splice(0, 0, post);
       },
 
       (error: AppError) => {
+        this.posts.splice(0, 1);
+
         if (error instanceof CantProcessError)
           alert('cannot process your request');
         else throw error;
