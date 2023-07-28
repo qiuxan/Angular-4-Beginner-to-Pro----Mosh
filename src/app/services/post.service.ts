@@ -17,30 +17,24 @@ export class PostService {
   createPost(post: any) {
     return this.http
       .post<{ id: number } | null>(this.url, JSON.stringify(post))
-      .pipe(
-        catchError((error: Response) => {
-          if (error.status === 400)
-            return throwError(new CantProcessError(error));
-          return throwError(new AppError(error));
-        })
-      );
+      .pipe(catchError(this.handleError));
   }
   getPosts() {
-    return this.http.get<Post[]>(this.url);
+    return this.http.get<Post[]>(this.url).pipe(catchError(this.handleError));
   }
   uptatePost(post: Post) {
-    return this.http.patch(
-      this.url + '/' + post.id,
-      JSON.stringify({ isRead: true })
-    );
+    return this.http
+      .patch(this.url + '/' + post.id, JSON.stringify({ isRead: true }))
+      .pipe(catchError(this.handleError));
   }
   deletePost(postID: number) {
-    return this.http.delete(this.url + '/' + 345).pipe(
-      catchError((error: Response) => {
-        if (error.status === 404)
-          return throwError(new CustomNotFoundError(error));
-        return throwError(new AppError(error));
-      })
-    );
+    return this.http
+      .delete(this.url + '/' + 345)
+      .pipe(catchError(this.handleError));
+  }
+  private handleError(error: Response) {
+    if (error.status === 400) return throwError(new CantProcessError(error));
+    if (error.status === 404) return throwError(new CustomNotFoundError(error));
+    return throwError(new AppError(error));
   }
 }
