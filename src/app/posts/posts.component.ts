@@ -18,15 +18,9 @@ export class PostsComponent implements OnInit {
   posts: Post[] = [];
 
   updatePost(post: Post) {
-    this.service.uptatePost(post).subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (error: Response) => {
-        alert('unexpected error occurred');
-        console.log(error);
-      }
-    );
+    this.service.uptatePost(post).subscribe((response) => {
+      console.log(response);
+    });
   }
 
   deletePost(post: Post) {
@@ -39,10 +33,7 @@ export class PostsComponent implements OnInit {
       (error: AppError) => {
         if (error instanceof NotFoundError)
           alert('this post has already been deleted');
-        else {
-          alert('unexpected error occurred');
-          console.log(error);
-        }
+        else throw error;
       }
     );
   }
@@ -58,10 +49,7 @@ export class PostsComponent implements OnInit {
       (error: AppError) => {
         if (error instanceof CantProcessError)
           alert('cannot process your request');
-        else {
-          alert('unexpected error occurred');
-          console.log(error);
-        }
+        else throw error;
         // if (error.status === 400) {
         //   // this.form.setErrors(error.json()) // if it is a form
         // } else {
@@ -76,14 +64,8 @@ export class PostsComponent implements OnInit {
   constructor(private service: PostService) {}
 
   ngOnInit(): void {
-    this.service.getPosts().subscribe(
-      (response) => {
-        this.posts = response;
-      },
-      (error) => {
-        alert('unexpected error occurred');
-        console.log(error);
-      }
-    );
+    this.service.getPosts().subscribe((response) => {
+      this.posts = response;
+    });
   }
 }

@@ -19,7 +19,7 @@ export class PostService {
       .post<{ id: number } | null>(this.url, JSON.stringify(post))
       .pipe(
         catchError((error: Response) => {
-          if (error.status === 404)
+          if (error.status === 400)
             return throwError(new CantProcessError(error));
           return throwError(new AppError(error));
         })
@@ -35,7 +35,7 @@ export class PostService {
     );
   }
   deletePost(postID: number) {
-    return this.http.delete(this.url + '/' + postID).pipe(
+    return this.http.delete(this.url + '/' + 345).pipe(
       catchError((error: Response) => {
         if (error.status === 404)
           return throwError(new CustomNotFoundError(error));
