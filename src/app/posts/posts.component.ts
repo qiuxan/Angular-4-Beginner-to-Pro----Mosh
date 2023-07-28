@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
+import { AppError } from '../common/app-error';
+import { NotFoundError } from '../common/not-found-error';
+import { CantProcessError } from '../common/cant-process-error';
 export interface Post {
   id: number;
   title: string | null;
@@ -14,13 +17,12 @@ export interface Post {
 export class PostsComponent implements OnInit {
   posts: Post[] = [];
 
-  private url = 'https://jsonplaceholder.typicode.com/posts';
   updatePost(post: Post) {
     this.service.uptatePost(post).subscribe(
       (response) => {
         console.log(response);
       },
-      (error) => {
+      (error: Response) => {
         alert('unexpected error occurred');
         console.log(error);
       }
@@ -34,9 +36,13 @@ export class PostsComponent implements OnInit {
         let index = this.posts.indexOf(post);
         this.posts.splice(index, 1);
       },
-      (error) => {
-        alert('unexpected error occurred');
-        console.log(error);
+      (error: AppError) => {
+        if (error instanceof NotFoundError)
+          alert('this post has already been deleted');
+        else {
+          alert('unexpected error occurred');
+          console.log(error);
+        }
       }
     );
   }
@@ -48,9 +54,20 @@ export class PostsComponent implements OnInit {
         post['id'] = response?.id;
         this.posts.splice(0, 0, post);
       },
-      (error) => {
-        alert('unexpected error occurred');
-        console.log(error);
+
+      (error: AppError) => {
+        if (error instanceof CantProcessError)
+          alert('cannot process your request');
+        else {
+          alert('unexpected error occurred');
+          console.log(error);
+        }
+        // if (error.status === 400) {
+        //   // this.form.setErrors(error.json()) // if it is a form
+        // } else {
+        //   alert('unexpected error occurred');
+        //   console.log(error);
+        // }
       }
     );
 
