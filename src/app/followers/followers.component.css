@@ -1,0 +1,15 @@
+.user-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  margin-block-start: 3rem;
+}
+.user-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.user-infomation-section {
+  margin-inline-start: 2rem;
+}

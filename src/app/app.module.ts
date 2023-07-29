@@ -27,6 +27,7 @@ import { PostsComponent } from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostService } from './services/post.service';
 import { AppErrorHandler } from './common/app-error-handler';
+import { FollowersComponent } from './followers/followers.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { AppErrorHandler } from './common/app-error-handler';
     NewCourseForm2Component,
     NewPasswordFormComponent,
     PostsComponent,
+    FollowersComponent,
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   providers: [
