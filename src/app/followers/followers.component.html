@@ -2,7 +2,9 @@
 <div *ngFor="let follower of followers" class="user-card">
   <img [src]="follower.avatar_url" alt="user image" class="user-image" />
   <div class="user-infomation-section">
-    <h3>{{ follower.login }}</h3>
+    <h3>
+      <a [routerLink]="['/followers', follower.id]">{{ follower.login }}</a>
+    </h3>
     <a [href]="follower.html_url">{{ follower.html_url }}</a>
   </div>
 </div>

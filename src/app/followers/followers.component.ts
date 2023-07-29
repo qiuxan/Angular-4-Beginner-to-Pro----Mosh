@@ -4,6 +4,7 @@ interface Followers {
   login: string;
   avatar_url: string;
   html_url: string;
+  id: number;
 }
 @Component({
   selector: 'app-followers',
@@ -22,6 +23,7 @@ export class FollowersComponent {
         login: f.login,
         avatar_url: f.avatar_url,
         html_url: f.html_url,
+        id: f.id,
       }));
     });
   }
