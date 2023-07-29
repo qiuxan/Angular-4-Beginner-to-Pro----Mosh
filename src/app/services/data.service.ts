@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { AppError } from '../common/app-error';
 import { NotFoundError as CustomNotFoundError } from '../common/not-found-error';
@@ -17,12 +17,10 @@ export class DataService {
       .pipe(catchError(this.handleError));
   }
   getAll() {
-    return (
-      this.http
-        .get(this.url)
-        // .pipe(map((response) => response))// un necessery in
-        .pipe(catchError(this.handleError))
-    );
+    return this.http
+      .get(this.url)
+      .pipe(map((response) => response)) // un necessery in
+      .pipe(catchError(this.handleError));
   }
   uptate(resource: any) {
     return this.http
