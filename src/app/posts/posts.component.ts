@@ -3,11 +3,6 @@ import { PostService } from '../services/post.service';
 import { AppError } from '../common/app-error';
 import { NotFoundError } from '../common/not-found-error';
 import { CantProcessError } from '../common/cant-process-error';
-export interface Post {
-  id: number;
-  title: string | null;
-  body: string | null;
-}
 
 @Component({
   selector: 'app-posts',
@@ -15,15 +10,15 @@ export interface Post {
   styleUrls: ['./posts.component.css'],
 })
 export class PostsComponent implements OnInit {
-  posts: Post[] = [];
+  posts: any = [];
 
-  updatePost(post: Post) {
+  updatePost(post: any) {
     this.service.uptate(post).subscribe((response) => {
       console.log(response);
     });
   }
 
-  deletePost(post: Post) {
+  deletePost(post: any) {
     let index = this.posts.indexOf(post);
     this.posts.splice(index, 1);
 
@@ -50,12 +45,6 @@ export class PostsComponent implements OnInit {
         if (error instanceof CantProcessError)
           alert('cannot process your request');
         else throw error;
-        // if (error.status === 400) {
-        //   // this.form.setErrors(error.json()) // if it is a form
-        // } else {
-        //   alert('unexpected error occurred');
-        //   console.log(error);
-        // }
       }
     );
 
