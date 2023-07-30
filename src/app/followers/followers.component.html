@@ -1,10 +1,19 @@
 <h1>Followers</h1>
-<div *ngFor="let follower of followers" class="user-card">
-  <img [src]="follower.avatar_url" alt="user image" class="user-image" />
-  <div class="user-infomation-section">
-    <h3>
+
+<div class="d-flex" *ngFor="let follower of followers">
+  <div class="flex-shrink-0">
+    <img
+      [src]="follower.avatar_url"
+      class="rounded-circle user-image"
+      alt="Sample Image"
+    />
+  </div>
+  <div class="flex-grow-1 ms-3 mt-5">
+    <h5>
       <a [routerLink]="['/followers', follower.id]">{{ follower.login }}</a>
-    </h3>
-    <a [href]="follower.html_url">{{ follower.html_url }}</a>
+    </h5>
+    <p>
+      <a [href]="follower.html_url">{{ follower.html_url }}</a>
+    </p>
   </div>
 </div>

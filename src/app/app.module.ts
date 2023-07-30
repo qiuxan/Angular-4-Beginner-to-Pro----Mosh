@@ -70,7 +70,7 @@ import { GitHubProfileComponent } from './git-hub-profile/git-hub-profile.compon
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'followers/:username', component: GitHubProfileComponent },
+      { path: 'followers/:id', component: GitHubProfileComponent },
       { path: 'followers', component: FollowersComponent },
       { path: 'posts', component: PostsComponent },
       { path: '**', component: NotFoundComponent },
