@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GitFollowersService } from '../git-followers.service';
+import { ActivatedRoute } from '@angular/router';
 interface Followers {
   login: string;
   avatar_url: string;
@@ -12,10 +13,16 @@ interface Followers {
   styleUrls: ['./followers.component.css'],
 })
 export class FollowersComponent {
-  constructor(private service: GitFollowersService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private service: GitFollowersService
+  ) {}
 
   followers: Followers[] = [];
   ngOnInit() {
+    this.route.queryParamMap.subscribe((params) => {
+      console.log({ params });
+    });
     this.service.getAll().subscribe((followers) => {
       console.log(followers);
 

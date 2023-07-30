@@ -19,6 +19,10 @@
             routerLinkActive="active current"
             aria-current="page"
             routerLink="/followers"
+            [queryParams]="{
+              page: 1,
+              order: 'newest'
+            }"
             >Followers</a
           >
         </li>
