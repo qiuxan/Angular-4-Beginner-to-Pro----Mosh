@@ -19,7 +19,7 @@ export class FollowersComponent {
     private service: GitFollowersService
   ) {}
 
-  followers: any = [];
+  followers: Follower[] = [];
   ngOnInit() {
     combineLatest([this.route.queryParamMap, this.route.paramMap])
       .pipe(
@@ -31,7 +31,12 @@ export class FollowersComponent {
         })
       )
       .subscribe((followers) => {
-        this.followers = followers;
+        this.followers = (followers as Follower[]).map((f) => ({
+          login: f.login,
+          avatar_url: f.avatar_url,
+          html_url: f.html_url,
+          id: f.id,
+        }));
       });
   }
 }
