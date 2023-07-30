@@ -10,7 +10,9 @@
   </div>
   <div class="flex-grow-1 ms-3 mt-5">
     <h5>
-      <a [routerLink]="['/followers', follower.id]">{{ follower.login }}</a>
+      <a [routerLink]="['/followers', follower.id, follower.login]">{{
+        follower.login
+      }}</a>
     </h5>
     <p>
       <a [href]="follower.html_url">{{ follower.html_url }}</a>
