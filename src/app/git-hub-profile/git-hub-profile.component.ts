@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { combineLatest } from 'rxjs';
 
 @Component({
@@ -8,7 +8,7 @@ import { combineLatest } from 'rxjs';
   styleUrls: ['./git-hub-profile.component.css'],
 })
 export class GitHubProfileComponent implements OnInit {
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
   ngOnInit() {
     combineLatest([this.route.queryParamMap, this.route.paramMap]).subscribe(
       (combine) => {
@@ -23,6 +23,11 @@ export class GitHubProfileComponent implements OnInit {
       }
 
       console.log({ id });
+    });
+  }
+  submit() {
+    this.router.navigate(['/followers'], {
+      queryParams: { page: 1, order: 'newest' },
     });
   }
 }
