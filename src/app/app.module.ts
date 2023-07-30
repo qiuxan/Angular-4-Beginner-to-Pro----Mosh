@@ -33,6 +33,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { GitHubProfileComponent } from './git-hub-profile/git-hub-profile.component';
+import { ArchiveItemComponent } from './archive-item/archive-item.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { GitHubProfileComponent } from './git-hub-profile/git-hub-profile.compon
     HomeComponent,
     NotFoundComponent,
     GitHubProfileComponent,
+    ArchiveItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +73,7 @@ import { GitHubProfileComponent } from './git-hub-profile/git-hub-profile.compon
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'followers/:id/:username', component: GitHubProfileComponent },
+      { path: ':year/:month', component: ArchiveItemComponent },
       { path: 'followers', component: FollowersComponent },
       { path: 'posts', component: PostsComponent },
       { path: '**', component: NotFoundComponent },
