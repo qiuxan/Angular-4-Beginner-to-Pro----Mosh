@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GitFollowersService } from '../git-followers.service';
 import { ActivatedRoute } from '@angular/router';
-import { combineLatest } from 'rxjs';
-interface Followers {
+import { combineLatest, map, switchMap } from 'rxjs';
+interface Follower {
   login: string;
   avatar_url: string;
   html_url: string;
@@ -19,25 +19,19 @@ export class FollowersComponent {
     private service: GitFollowersService
   ) {}
 
-  followers: Followers[] = [];
+  followers: any = [];
   ngOnInit() {
-    combineLatest([this.route.queryParamMap, this.route.paramMap]).subscribe(
-      (combine) => {
-        console.log(combine[0], combine[1]);
-
-        let id = combine[0].get('id');
-        let page = combine[1].get('page');
-        // this.service.getAll({id, page})// in real world application
-
-        this.service.getAll().subscribe((followers) => {
-          this.followers = (followers as any[]).map((f) => ({
-            login: f.login,
-            avatar_url: f.avatar_url,
-            html_url: f.html_url,
-            id: f.id,
-          }));
-        });
-      }
-    );
+    combineLatest([this.route.queryParamMap, this.route.paramMap])
+      .pipe(
+        switchMap((combine) => {
+          let id = combine[0].get('id');
+          let page = combine[1].get('page');
+          // this.service.getAll({id, page})// in real world application
+          return this.service.getAll();
+        })
+      )
+      .subscribe((followers) => {
+        this.followers = followers;
+      });
   }
 }
