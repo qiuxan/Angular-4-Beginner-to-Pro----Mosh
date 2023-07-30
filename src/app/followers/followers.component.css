@@ -3,7 +3,6 @@
   height: 150px;
   border-radius: 50%;
   border: 2px solid #ccc;
-  margin-block-start: 3rem;
 }
 .user-card {
   display: flex;
