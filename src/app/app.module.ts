@@ -73,7 +73,7 @@ import { ArchiveItemComponent } from './archive-item/archive-item.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'followers/:id/:username', component: GitHubProfileComponent },
-      { path: ':year/:month', component: ArchiveItemComponent },
+      { path: 'archives/:year/:month', component: ArchiveItemComponent },
       { path: 'followers', component: FollowersComponent },
       { path: 'posts', component: PostsComponent },
       { path: '**', component: NotFoundComponent },
