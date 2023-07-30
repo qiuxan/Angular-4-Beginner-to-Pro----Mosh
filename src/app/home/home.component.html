@@ -1,6 +1,6 @@
 <p>home works!</p>
 <p *ngFor="let archiveItem of archiveItems">
-  <a [routerLink]="[archiveItem.year, archiveItem.month]">
+  <a [routerLink]="['archives/', archiveItem.year, archiveItem.month]">
     {{ archiveItem.year }}/ {{ archiveItem.month }}</a
   >
 </p>
