@@ -34,6 +34,9 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { GitHubProfileComponent } from './git-hub-profile/git-hub-profile.component';
 import { ArchiveItemComponent } from './archive-item/archive-item.component';
+import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './login/login.component';
+import { NoAccessComponent } from './no-access/no-access.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +67,9 @@ import { ArchiveItemComponent } from './archive-item/archive-item.component';
     NotFoundComponent,
     GitHubProfileComponent,
     ArchiveItemComponent,
+    AdminComponent,
+    LoginComponent,
+    NoAccessComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +78,12 @@ import { ArchiveItemComponent } from './archive-item/archive-item.component';
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
+
+      //Task 2 - Add RouteGuard to Admin Route:
+      { path: 'admin', component: AdminComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'no-access', component: NoAccessComponent },
+
       { path: 'followers/:id/:username', component: GitHubProfileComponent },
       { path: 'archives/:year/:month', component: ArchiveItemComponent },
       { path: 'followers', component: FollowersComponent },
